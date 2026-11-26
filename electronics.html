@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<meta name="description" content="INVENTREX — Electronics & PCB Design. Engineering, design and technology for products and intelligent systems."><title>Electronics & PCB Design | INVENTREX</title>
+<style>
+:root{--navy:#070B14;--teal:#0891B2;--teal2:#22D3EE;--ink:#15243A;--muted:#5B6878;--paper:#F4F7FB;--white:#FFFFFF;--line:rgba(16,39,68,.13);--grid:rgba(16,39,68,.055)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Space Grotesk",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;z-index:-1}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}.topbar{position:sticky;top:0;z-index:50;background:rgba(244,247,251,.90);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.13em;color:var(--navy)}.brand svg{width:64px;height:46px;flex:none}.brand small{display:block;font-size:8px;letter-spacing:.2em;color:var(--teal);font-weight:700;margin-top:2px}.navlinks{display:flex;gap:30px;align-items:center;font-size:13px;color:#405971}.navlinks a:hover{color:var(--teal)}.nav-cta{border:1px solid var(--teal);padding:10px 17px;color:var(--navy);font-weight:700!important;letter-spacing:.03em}.menu{display:none;background:none;border:0;font-size:24px;color:var(--navy)}
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:8px 0;font:inherit;color:inherit;cursor:pointer}
+.nav-drop-trigger:hover,.nav-dropdown.open .nav-drop-trigger{color:var(--teal)}
+.nav-drop-trigger .caret{font-size:10px;transition:transform .25s ease;display:inline-block}
+.nav-dropdown:hover .caret,.nav-dropdown.open .caret{transform:rotate(180deg)}
+.nav-slide-menu{position:absolute;top:100%;left:-24px;width:340px;background:rgba(244,247,251,.98);backdrop-filter:blur(16px);border:1px solid var(--line);border-top:2px solid var(--teal);box-shadow:0 24px 54px rgba(7,11,20,.14);padding:10px;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .24s ease,transform .24s ease,visibility .24s;z-index:80}
+.nav-dropdown:hover .nav-slide-menu,.nav-dropdown.open .nav-slide-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-slide-menu a{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid rgba(16,39,68,.07);transition:background .18s,padding-left .18s}
+.nav-slide-menu a:last-child{border-bottom:0}
+.nav-slide-menu a:hover{background:rgba(8,145,178,.08);padding-left:18px;color:var(--navy)}
+.nav-slide-menu .m-code{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:var(--teal);letter-spacing:.1em;display:block}
+.nav-slide-menu .m-title{font-size:13px;font-weight:700;color:var(--navy);display:block;line-height:1.25;margin-top:2px}
+.nav-slide-menu .m-arrow{font-size:12px;color:var(--teal);opacity:.7;transition:transform .18s}
+.nav-slide-menu a:hover .m-arrow{transform:translate(2px,-2px);opacity:1}
+
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);font-weight:800;display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";width:28px;height:2px;background:var(--teal)}
+.sub-hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}.breadcrumb{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:28px;letter-spacing:.06em;text-transform:uppercase}.breadcrumb a:hover{color:var(--teal)}
+.sub-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+h1{font-size:clamp(42px,5.8vw,74px);line-height:1.04;letter-spacing:-.055em;color:var(--navy);margin:18px 0 20px;font-weight:850}h1 span{color:var(--teal)}
+.hero-copy{max-width:580px;color:#526a80;font-size:17px;margin:0}.hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 21px;background:var(--navy);color:white;font-size:13px;font-weight:750;letter-spacing:.02em;transition:.2s;border:1px solid var(--navy);cursor:pointer;font-family:inherit}.btn:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-2px)}.btn.secondary{background:transparent;color:var(--navy);border-color:rgba(16,39,68,.3)}.btn.secondary:hover{background:var(--navy);color:white}
+.spec-badge{border:1px solid rgba(16,39,68,.16);background:linear-gradient(135deg,rgba(255,255,255,.65),rgba(207,224,239,.35));padding:36px;position:relative;box-shadow:0 20px 50px rgba(16,39,68,.06)}.corner{position:absolute;width:18px;height:18px;border-color:var(--teal);border-style:solid}.c1{left:12px;top:12px;border-width:1px 0 0 1px}.c2{right:12px;top:12px;border-width:1px 1px 0 0}.c3{bottom:12px;left:12px;border-width:0 0 1px 1px}.c4{right:12px;bottom:12px;border-width:0 1px 1px 0}
+.spec-badge svg{width:72px;height:72px;margin-bottom:18px}.spec-badge .mono{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);letter-spacing:.12em;display:block;margin-bottom:8px}.spec-badge strong{font-size:18px;color:var(--navy);display:block;margin-bottom:6px}.spec-badge p{font-size:13px;color:var(--muted);margin:0}
+.section{padding:88px 0}.section.dark{background:#0A101E;color:#F4F7FB;position:relative}.section.dark:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.overview-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}.overview-title{font-size:34px;line-height:1.18;letter-spacing:-.04em;color:var(--navy);margin:14px 0 0}.overview-text p{color:#50677d;margin-top:0}
+.specs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}.spec-card{border:1px solid var(--line);background:rgba(255,255,255,.45);padding:26px}.spec-card .idx{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal);font-weight:700;display:block;margin-bottom:10px}.spec-card h3{margin:0 0 8px;font-size:19px;color:var(--navy);letter-spacing:-.02em}.spec-card p{margin:0;font-size:13.5px;color:#5a7187}
+.deliv-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}.deliv-item{border:1px solid rgba(255,255,255,.16);padding:20px;background:rgba(255,255,255,.03)}.deliv-item span{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--teal2);display:block;margin-bottom:8px}.deliv-item strong{font-size:14px;color:white;display:block;line-height:1.35}
+.domain-nav{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.4)}.domain-nav-inner{display:grid;grid-template-columns:1fr 1fr}.domain-link{padding:28px 0;display:flex;flex-direction:column;gap:4px;transition:.2s}.domain-link:hover{color:var(--teal)}.domain-link.next{text-align:right;border-left:1px solid var(--line);padding-left:24px}.domain-link.prev{padding-right:24px}.domain-link small{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.domain-link strong{font-size:17px;color:var(--navy)}.domain-link:hover strong{color:var(--teal)}
+.contact{padding:84px 0;background:#E6EEF6}.contact-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}.contact h2{font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.05em;color:var(--navy);margin:16px 0}.contact p{color:#597188;max-width:530px}.contact-box{border:1px solid rgba(16,39,68,.2);padding:28px;background:rgba(255,255,255,.38)}.contact-box .tag{font-size:10px;color:var(--teal);font-weight:800;letter-spacing:.16em}.contact-box h3{font-size:22px;color:var(--navy);margin:14px 0}.contact-box p{font-size:13px;margin:0 0 20px}
+.footer{background:var(--navy);color:#b5c8d9;padding:26px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer .brand{color:white}.footer .brand small{color:#5cc6d8}.footer p{font-size:10px;letter-spacing:.12em;margin:0}.fade{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}.fade.visible{opacity:1;transform:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(7,11,20,.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.modal-overlay.open{display:flex}.modal-box{background:var(--paper);border:1px solid var(--teal);width:min(520px,100%);padding:32px;position:relative;box-shadow:0 24px 60px rgba(7,11,20,.3)}.modal-close{position:absolute;top:20px;right:20px;background:none;border:0;font-size:22px;color:var(--muted);cursor:pointer;line-height:1}.modal-close:hover{color:var(--navy)}.modal-box h3{margin:10px 0 6px;font-size:24px;color:var(--navy);letter-spacing:-.03em}.modal-to{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal);margin-bottom:20px;display:block}.form-group{margin-bottom:16px}.form-group label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:6px}.form-group input,.form-group textarea{width:100%;padding:12px;border:1px solid rgba(16,39,68,.25);background:var(--white);font-family:inherit;font-size:14px;color:var(--ink)}.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--teal)}.form-group textarea{min-height:120px;resize:vertical}
+@media(max-width:850px){.sub-hero-grid,.overview-grid,.contact-inner{grid-template-columns:1fr}.specs-grid{grid-template-columns:1fr}.deliv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.wrap{width:calc(100% - 34px)}nav{height:70px}.navlinks{display:none;position:absolute;left:0;right:0;top:70px;background:var(--paper);padding:22px;flex-direction:column;align-items:stretch;gap:18px;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}.nav-dropdown{flex-direction:column;align-items:stretch}.nav-drop-trigger{justify-content:space-between;width:100%;padding:0}.nav-slide-menu{position:static;width:100%;box-shadow:none;border:0;border-left:2px solid var(--teal);background:rgba(8,145,178,.04);padding:0 0 0 12px;margin-top:0;max-height:0;overflow:hidden;opacity:1;visibility:visible;transform:none;transition:max-height .3s ease,margin-top .3s ease}.nav-dropdown.open .nav-slide-menu{max-height:460px;margin-top:10px}.deliv-grid{grid-template-columns:1fr}.domain-nav-inner{grid-template-columns:1fr}.domain-link.next{text-align:left;border-left:0;border-top:1px solid var(--line);padding-left:0}.footer-inner{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><nav>
+<a class="brand" href="index.html" aria-label="INVENTREX home"><svg viewBox="0 0 88 64" role="img" aria-label="INVENTREX logo" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="27.1,10.6 28.0,3.8 36.0,3.8 36.9,10.6 40.6,11.7 45.4,6.8 51.8,11.5 48.6,17.6 50.9,20.7 57.6,19.5 60.1,27.1 53.9,30.1 53.9,33.9 60.1,36.9 57.6,44.5 50.9,43.3 48.6,46.4 51.8,52.5 45.4,57.2 40.6,52.3 36.9,53.4 36.0,60.2 28.0,60.2 27.1,53.4 23.4,52.3 18.6,57.2 12.2,52.5 15.4,46.4 13.1,43.3 6.4,44.5 3.9,36.9 10.1,33.9 10.1,30.1 3.9,27.1 6.4,19.5 13.1,20.7 15.4,17.6 12.2,11.5 18.6,6.8 23.4,11.7" stroke="#070B14" stroke-width="3" stroke-linejoin="round"/><path d="M19 27H23M41 27H45M27 19V23M27 41V45M19 32H23M41 32H45M32 19V23M32 41V45M19 37H23M41 37H45M37 19V23M37 41V45" stroke="#0891B2" stroke-width="2" stroke-linecap="round"/><rect x="23" y="23" width="18" height="18" rx="2" stroke="#070B14" stroke-width="2.8"/><path d="M28 28L36 36" stroke="#070B14" stroke-width="3.5" stroke-linecap="round"/><path d="M36 28L28 36" stroke="#0891B2" stroke-width="3.5" stroke-linecap="round"/><path d="M58 32H80M56 24H66L70 20H80M56 40H66L70 44H80" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="32" r="2.8" fill="#0891B2"/><circle cx="80" cy="20" r="2.8" fill="#0891B2"/><circle cx="80" cy="44" r="2.8" fill="#0891B2"/></svg><span>INVENTREX<small>ENGINEERING & PRODUCT DEVELOPMENT</small></span></a>
+<div class="navlinks" id="navlinks"><a href="index.html#about">About</a><div class="nav-dropdown" id="capDropdown"><a class="nav-drop-trigger" href="index.html#capabilities" id="capTrigger" aria-expanded="false">Capabilities <span class="caret">▾</span></a><div class="nav-slide-menu" role="menu"><a href="electronics.html" role="menuitem"><div><span class="m-code">01 / ELECTRONICS</span><span class="m-title">Electronics & PCB Design</span></div><span class="m-arrow">↗</span></a><a href="embedded.html" role="menuitem"><div><span class="m-code">02 / EMBEDDED & IoT</span><span class="m-title">Embedded & Connected Systems</span></div><span class="m-arrow">↗</span></a><a href="robotics.html" role="menuitem"><div><span class="m-code">03 / ROBOTICS</span><span class="m-title">Robotics & Automation</span></div><span class="m-arrow">↗</span></a><a href="prototyping.html" role="menuitem"><div><span class="m-code">04 / PRODUCT DEV</span><span class="m-title">R&D & Prototyping</span></div><span class="m-arrow">↗</span></a><a href="reverse-engineering.html" role="menuitem"><div><span class="m-code">05 / ANALYSIS</span><span class="m-title">Reverse Engineering</span></div><span class="m-arrow">↗</span></a><a href="mechanical.html" role="menuitem"><div><span class="m-code">06 / MECHANICAL</span><span class="m-title">Mechanical Design</span></div><span class="m-arrow">↗</span></a></div></div><a href="index.html#process">Process</a><a href="index.html#applications">Applications</a><a class="nav-cta" href="#contact">Start a project ↗</a></div><button class="menu" id="menu" aria-label="Toggle navigation">☰</button>
+</nav></div></header>
+
+<main>
+<section class="sub-hero"><div class="wrap">
+<div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <a href="index.html#capabilities">Capabilities</a> <span>/</span> <span>Electronics & PCB Design</span></div>
+<div class="sub-hero-grid">
+<div class="fade">
+<div class="eyebrow">01 / ELECTRONICS</div>
+<h1>Electronics &<br><span>PCB Design.</span></h1>
+<p class="hero-copy">From schematic capture and multi-layer PCB layout to power integrity, sensor front-ends, and hardware bring-up.</p>
+<div class="hero-actions"><button class="btn" id="openHeroModal" type="button">Discuss Electronics & PCB Design <span>↗</span></button><a class="btn secondary" href="index.html#capabilities">All capabilities</a></div>
+</div>
+<div class="spec-badge fade">
+<span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+<svg viewBox="0 0 48 48" fill="none"><rect x="10" y="10" width="28" height="28" stroke="#070B14" stroke-width="1.8"/><rect x="17" y="17" width="14" height="14" stroke="#0891B2" stroke-width="2"/><path d="M4 16h6M4 24h6M4 32h6M38 16h6M38 24h6M38 32h6M16 4v6M24 4v6M32 4v6M16 38v6M24 38v6M32 38v6" stroke="#070B14" stroke-width="1.7"/></svg>
+<span class="mono">TECHNICAL DOMAIN // 01 / ELECTRONICS</span>
+<strong>Integrated Development</strong>
+<p>Engineered alongside mechanical, firmware, and systems teams so every interface works on the first build.</p>
+</div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="overview-grid fade">
+<div><div class="eyebrow">APPROACH & SCOPE</div><h2 class="overview-title">Reliable hardware engineered from first principles.</h2></div>
+<div class="overview-text"><p>Modern products demand compact, noise-immune, and manufacturable electronics. We design custom printed circuit boards tailored to your mechanical envelope, thermal budget, and regulatory targets—avoiding off-the-shelf module compromises where custom integration adds real value.</p><p>Every board goes through rigorous schematic review, component lifecycle verification, impedance-controlled routing, and structured bring-up testing so your firmware team receives verified, predictable hardware.</p></div>
+</div>
+<div class="specs-grid fade">
+<div class="spec-card"><span class="idx">SPEC_01</span><h3>Multi-Layer PCB Layout</h3><p>2 to 12+ layer HDI, controlled-impedance differential pairs, and clean ground planes.</p></div>
+<div class="spec-card"><span class="idx">SPEC_02</span><h3>Analog & Sensor Front-Ends</h3><p>Low-noise signal conditioning, precision ADC/DAC interfacing, and galvanic isolation.</p></div>
+<div class="spec-card"><span class="idx">SPEC_03</span><h3>Power Architecture</h3><p>High-efficiency DC-DC switching regulators, Li-Ion/LiFePO4 battery management, and USB-C PD.</p></div>
+<div class="spec-card"><span class="idx">SPEC_04</span><h3>EMC & DFM Readiness</h3><p>Design for manufacturability, panelization, BOM optimization, and pre-compliance EMI mitigation.</p></div>
+</div>
+</div></section>
+
+<section class="section dark"><div class="wrap fade">
+<div class="eyebrow">TYPICAL DELIVERABLES</div>
+<h2 style="font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;margin:16px 0 0;color:white">Tangible outputs ready for the next stage.</h2>
+<div class="deliv-grid">
+<div class="deliv-item"><span>OUT_01</span><strong>Schematics & Netlists</strong></div>
+<div class="deliv-item"><span>OUT_02</span><strong>Gerber & ODB++ Files</strong></div>
+<div class="deliv-item"><span>OUT_03</span><strong>3D STEP PCB Models</strong></div>
+<div class="deliv-item"><span>OUT_04</span><strong>Verified BOM & CPL</strong></div>
+<div class="deliv-item"><span>OUT_05</span><strong>Bring-Up Test Reports</strong></div>
+</div>
+</div></section>
+
+<nav class="domain-nav" aria-label="Capability navigation"><div class="wrap domain-nav-inner">
+<a class="domain-link prev" href="mechanical.html"><small>← Previous Discipline</small><strong>06 / Mechanical Design</strong></a>
+<a class="domain-link next" href="embedded.html"><small>Next Discipline →</small><strong>02 / Embedded & Connected Systems</strong></a>
+</div></nav>
+
+<section class="contact" id="contact"><div class="wrap contact-inner fade"><div><div class="eyebrow">START A CONVERSATION</div><h2>Need support with<br><span style="color:var(--teal)">Electronics & PCB Design?</span></h2><p>Share your requirements, target timeline, or current technical bottleneck. We will review the brief and propose a practical path forward.</p><button class="btn" id="openMsgModal" type="button">Send project brief ↗</button></div><div class="contact-box"><span class="tag">DIRECT ENGINEERING INQUIRY</span><h3>Start with the problem.</h3><p>Whether you need standalone Electronics & PCB Design support or full multi-disciplinary product development, a short note is enough to begin.</p><a class="btn secondary" href="index.html">← Back to overview</a></div></div></section>
+</main>
+
+<div class="modal-overlay" id="msgModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="closeMsgModal" aria-label="Close message box">&times;</button>
+    <div class="eyebrow">NEW BRIEF</div>
+    <h3 id="modalTitle">Inquire: Electronics & PCB Design</h3>
+    <span class="modal-to">TO: Info@inventrex.net</span>
+    <form id="msgForm">
+      <div class="form-group">
+        <label for="senderName">Your Name</label>
+        <input type="text" id="senderName" required placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label for="senderEmail">Your Email</label>
+        <input type="email" id="senderEmail" required placeholder="jane@company.com">
+      </div>
+      <div class="form-group">
+        <label for="msgSubject">Subject</label>
+        <input type="text" id="msgSubject" required value="Electronics & PCB Design Inquiry">
+      </div>
+      <div class="form-group">
+        <label for="msgBody">Message</label>
+        <textarea id="msgBody" required placeholder="Tell us about your project, goals, and constraints..."></textarea>
+      </div>
+      <button class="btn" type="submit" style="width:100%;justify-content:center">Send Message ↗</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="index.html"><svg viewBox="0 0 88 64" role="img" aria-label="INVENTREX logo" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="27.1,10.6 28.0,3.8 36.0,3.8 36.9,10.6 40.6,11.7 45.4,6.8 51.8,11.5 48.6,17.6 50.9,20.7 57.6,19.5 60.1,27.1 53.9,30.1 53.9,33.9 60.1,36.9 57.6,44.5 50.9,43.3 48.6,46.4 51.8,52.5 45.4,57.2 40.6,52.3 36.9,53.4 36.0,60.2 28.0,60.2 27.1,53.4 23.4,52.3 18.6,57.2 12.2,52.5 15.4,46.4 13.1,43.3 6.4,44.5 3.9,36.9 10.1,33.9 10.1,30.1 3.9,27.1 6.4,19.5 13.1,20.7 15.4,17.6 12.2,11.5 18.6,6.8 23.4,11.7" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><path d="M19 27H23M41 27H45M27 19V23M27 41V45M19 32H23M41 32H45M32 19V23M32 41V45M19 37H23M41 37H45M37 19V23M37 41V45" stroke="#22D3EE" stroke-width="2" stroke-linecap="round"/><rect x="23" y="23" width="18" height="18" rx="2" stroke="#FFFFFF" stroke-width="2.8"/><path d="M28 28L36 36" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/><path d="M36 28L28 36" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round"/><path d="M58 32H80M56 24H66L70 20H80M56 40H66L70 44H80" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="32" r="2.8" fill="#22D3EE"/><circle cx="80" cy="20" r="2.8" fill="#22D3EE"/><circle cx="80" cy="44" r="2.8" fill="#22D3EE"/></svg><span>INVENTREX<small>ENGINEERING & PRODUCT DEVELOPMENT</small></span></a><p>INVENTREX · IDEAS ENGINEERED INTO REALITY</p><p>© <span id="year"></span> INVENTREX</p></div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const menu=document.getElementById('menu'),links=document.getElementById('navlinks');
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a:not(.nav-drop-trigger)').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const capDropdown=document.getElementById('capDropdown'),capTrigger=document.getElementById('capTrigger');
+if(capTrigger){
+  capTrigger.addEventListener('click',e=>{
+    if(window.innerWidth<=600){
+      e.preventDefault();
+      const isOpen=capDropdown.classList.toggle('open');
+      capTrigger.setAttribute('aria-expanded',isOpen);
+    }
+  });
+  document.addEventListener('click',e=>{
+    if(!capDropdown.contains(e.target)){
+      capDropdown.classList.remove('open');
+      capTrigger.setAttribute('aria-expanded','false');
+    }
+  });
+}
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+const modal=document.getElementById('msgModal');
+document.getElementById('openMsgModal').addEventListener('click',()=>modal.classList.add('open'));
+document.getElementById('openHeroModal').addEventListener('click',()=>modal.classList.add('open'));
+document.getElementById('closeMsgModal').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+document.getElementById('msgForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('senderName').value;
+  const email=document.getElementById('senderEmail').value;
+  const subject=encodeURIComponent(document.getElementById('msgSubject').value);
+  const body=encodeURIComponent(`From: ${name} (${email})
+
+${document.getElementById('msgBody').value}`);
+  window.location.href=`mailto:Info@inventrex.net?subject=${subject}&body=${body}`;
+  modal.classList.remove('open');
+});
+</script>
+</body></html>
